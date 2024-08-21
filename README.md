@@ -2,6 +2,14 @@
 
 Está é a minha doc
 
+
+controle
+models
+campo de teste
+banco de dados
+rotas
+services caso necessario.
+
 # Documentação
 
 

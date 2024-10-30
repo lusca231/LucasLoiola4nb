@@ -1,6 +1,6 @@
-import { UserRepository } from '../repositories/userRepository';
-import { hashPassword, comparePassword } from '../helpers/hashHelper';
-import { createSession } from '../helpers/sessionHelper';
+import { UserRepository } from "../repositories/userRepository";
+import { hashPassword, comparePassword } from "../helpers/hashHelper";
+import { createSession } from "../helpers/sessionHelpers";
 
 export class AuthService {
   private userRepository: UserRepository;
@@ -19,10 +19,12 @@ export class AuthService {
   // Login de usuário
   async loginUser(email: string, password: string) {
     const user = await this.userRepository.getUserByEmail(email);
-    if (!user) throw new Error('Usuário não encontrado');
+    if (!user) throw new Error("Usuário não encontrado");
 
-    const isPasswordValid = comparePassword(password, user.passwordHash);
-    if (!isPasswordValid) throw new Error('Senha incorreta');
+    const isPasswordValid = comparePassword(password, user.passwordhash);
+    console.log(user.passwordhash);
+    console.log(isPasswordValid);
+    if (!isPasswordValid) throw new Error("Senha incorreta");
 
     createSession(user.id); // Cria a sessão
     return user;

@@ -1,7 +1,9 @@
-import crypto from 'crypto';
+import crypto from "crypto";
 
 export const hashPassword = (password: string): string => {
-  return crypto.createHash('sha256').update(password).digest('hex');
+  const hash = crypto.createHash("sha256").update(password).digest("hex");
+  console.log(hash);
+  return hash;
 };
 
 export const comparePassword = (password: string, hash: string): boolean => {

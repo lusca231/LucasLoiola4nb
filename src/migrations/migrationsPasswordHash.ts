@@ -1,7 +1,7 @@
 import pool from "../config/database";
 import { hashPassword } from "../helpers/hashHelper";
 // ... other code ...
-const sql = `ALTER TABLE users ADD COLUMN passwordhash VARCHAR(100);`;
+const sql = `ALTER TABLE users ADD COLUMN passwordHash VARCHAR(100);`;
 pool
   .query(sql)
   .then((result) => {
